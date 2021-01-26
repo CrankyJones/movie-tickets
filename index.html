@@ -8,5 +8,42 @@
   <title>Document</title>
 </head>
 <body>
+  <div class="container">
+    <h1>Movies:</h1>
+    <div class="row">
+      <div class="col-md-4">
+        <hr>
+        <h2>Select a movie:</h2>
+        <form id="ticket-selection">
+          <select class="form-control" id="newMovie">
+            <option value="olderMovie"></option>
+            <option value="olderMovie"></option>
+            <option value="newerMovie"></option>
+            <option value="newerMovie"></option>
+          </select>
+          <select class="form-control" id="time">
+            <option value="matinee"></option>
+            <option value="matinee"></option>
+            <option value="standard"></option>
+            <option value="standard"></option>
+          </select>
+          <select class="form-control" id="age">
+            <option value="adult" id="age">Over 65 years of age</option>
+            <option value="discount">Under 13 years of age</option>
+            <option value="discount">Over 65 years of age</option>
+          </select>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div id="show-ticket-selection">
+          <p>Movie: <span class="movie-choice"></span></p>
+          <p>Time: <span class="time-choice"></span></p>
+          <p>Price: <span class="phone-number"></span></p>
+          <div id="buttons">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
