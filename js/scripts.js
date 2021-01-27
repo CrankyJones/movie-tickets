@@ -30,13 +30,15 @@ function Ticket(time, age, newMovie) {
 
 Ticket.prototype.ticketPrice = function() {
   this.price = 5.00;
-  if (this.time === "7:00" || "9:30") {
+  console.log(this.time)
+  console.log(this.newMovie)
+  if (this.time === "7:00" || this.time === "9:30") {
     this.price += 2.00;
   }
   if (this.age === "adult") {
     this.price += 3.00;
   }
-  if (this.newMovie === "Some Hollywood Reboot" || "Avengers 4000") {
+  if (this.newMovie === "Some Hollywood Reboot" || this.newMovie === "Avengers 4000") {
     this.price += 5.00;
   }
 };
