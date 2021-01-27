@@ -30,13 +30,13 @@ function Ticket(time, age, newMovie) {
 
 Ticket.prototype.ticketPrice = function() {
   this.price = 5.00;
-  if (this.time === "standard") {
+  if (this.time === "7:00" || "9:30") {
     this.price += 2.00;
   }
   if (this.age === "adult") {
     this.price += 3.00;
   }
-  if (this.newMovie === "newerMovie") {
+  if (this.newMovie === "Some Hollywood Reboot" || "Avengers 4000") {
     this.price += 5.00;
   }
 };
@@ -57,7 +57,8 @@ $(document).ready(function() {
     newTicket.ticketPrice();
     movie.addTicket(newTicket);
    //   $(".movie-choice").text(inputtedTitle);
-      $(".time-choice").text($(newTicket.inputtedTime));
+      $(".movie-choice").text(newTicket.newMovie);
+      $(".time-choice").text(newTicket.time);
       $(".price").text("$" + newTicket.price);
   });
 });
