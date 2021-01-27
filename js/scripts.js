@@ -12,32 +12,54 @@ function Movie()  {
   this.tickets = {};
   this.currentId = 0;
 }
-Movie.prototype.assignId = function(member) {
-  member.id = this.assignId();
-  this.members[member.id] = contact;
+Movie.prototype.assignId = function() {
+  this.currentId += 1;
+  return this.currentId;
 }
-
-
+Movie.prototype.addTicket = function(ticket) {
+  ticket.id = this.assignId();
+  this.tickets[ticket.id] = ticket;
+}
 // Business logic for movies
 function Ticket(time, age, newMovie) {
   this.time = time; // this form needs matinee/not matinee
   this.age = age; //this form will need a dropdown for child, adult, senior
   this.newMovie = newMovie; //this form will need a true/false 
 }
-// let price = 5.00$
-// if age > 12 && age < 65,  price = price + 2.00
-//   else if (matinee = false) price = price +3.00
-//    else if (newMovie = true) price = price + 2.00
-//     
 
+
+Ticket.prototype.ticketPrice = function() {
+  this.price = 5.00;
+  if (this.time === "standard") {
+    this.price += 2.00;
+  }
+  if (this.age === "adult") {
+    this.price += 3.00;
+  }
+  if (this.newMovie === "newerMovie") {
+    this.price += 5.00;
+  }
+};
+
+// User Interface Logic
+let movie = new Movie();
 
 $(document).ready(function() {
   $("#ticket-selection").submit(function(event) {
     event.preventDefault();
-    let inputtedTime = $("input#time").val();
-    let inputtedAge = $("input#age").val(); 
-    let inputtedNewMovie = $("input#newMovie").val(); 
+    // let inputtedMovie =$("input#Title").val();
+    let inputtedTime = $("select#time").val();
+    let inputtedAge = $("select#age").val(); 
+    let inputtedNewMovie = $("select#newMovie").val(); 
     let newTicket = new Ticket(inputtedTime, inputtedAge, inputtedNewMovie);
-    Movie.addAccount(newTicket);
+
+  // function for inputs to return pricing
+    newTicket.ticketPrice();
+    movie.addTicket(newTicket);
+   //   $(".movie-choice").text(inputtedTitle);
+      $(".time-choice").text($(newTicket.inputtedTime));
+      $(".price").text("$" + newTicket.price);
   });
 });
+
+

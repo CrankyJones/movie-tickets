@@ -1,0 +1,22 @@
+body {
+  background: url(../img/pexels-monica-silvestre-713149.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+}
+h1 {
+  text-align: center;
+}
+.form-control{
+  margin-top: 8px;
+}
+
+#show-ticket-selection{
+  margin-top: 65px;
+}
+
+#button{
+  margin-top: 25px;
+}
